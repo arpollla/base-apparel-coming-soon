@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+  </head>
+  <body>
+    <main>
+      <img
+        src="./images/hero-desktop.jpg"
+        alt="hero"
+        aria-hidden="true"
+        id="hero"
+      />
+      <article>
+        <img src="./images/logo.svg" alt="logo" aria-hidden="true" id="logo" />
+        <img
+          src="./images/hero-mobile.jpg"
+          alt="hero-mobile"
+          aria-hidden="true"
+          id="hero-mobile"
+        />
+        <h1><span>We're</span> coming soon</h1>
+
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </p>
+        <div id="email">
+          <input placeholder="Email Address" id="email-address" />
+          <img
+            src="./images/icon-error.svg"
+            alt="error"
+            aria-hidden="true"
+            id="error"
+          />
+          <span id="sign-up">
+            <img
+              src="./images/icon-arrow.svg"
+              alt="arrow"
+              id="arrow"
+              aria-hidden="true"
+            />
+          </span>
+          <div id="reminder">Please provide a valid email</div>
+        </div>
+      </article>
+    </main>
+
+    <script>
+      hero = function () {
+        var scrWidth = screen.width;
+        if (scrWidth <= 376) {
+          document.getElementById("hero").style.display = "none";
+          document.getElementById("hero-mobile").style.display = "block";
+        } else {
+          document.getElementById("hero").style.display = "block";
+          document.getElementById("hero").style.float = "right";
+          document.getElementById("hero-mobile").style.display = "none";
+        }
+      };
+      hero();
+      window.onresize = function () {
+        hero();
+      };
+
+      document.getElementById("sign-up").addEventListener("click", function () {
+        var input = document.getElementById("email-address").value;
+        if (input.slice(-10) != "@email.com") {
+          document.getElementById("error").style.display = "block";
+          document.getElementById("reminder").style.display = "block";
+          document.getElementById("email").style.border =
+            "2px solid hsl(0, 93%, 68%)";
+        } else {
+          document.getElementById("error").style.display = "none";
+          document.getElementById("reminder").style.display = "none";
+          document.getElementById("email").style.border =
+            "1px solid hsl(0, 36%, 70%)";
+        }
+      });
+    </script>
+  </body>
+</html>

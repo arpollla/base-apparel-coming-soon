@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+/* ### Primary */
+ --Desaturated-Red: hsl(0, 36%, 70%);
+ --Soft-Red: hsl(0, 93%, 68%);
+/* ### Neutral */
+ --Dark-Grayish-Red: hsl(0, 6%, 24%);
+/* ### Gradients */
+ /* Linear, 135deg  */
+ --Linear-Start-1: hsl(0, 0%, 100%);
+ --Linear-End-1: hsl(0, 100%, 98%);
+ --Linear-Start-2 : hsl(0, 80%, 86%);
+ --Linear-End-2: hsl(0, 74%, 74%);
+}
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: row-reverse;
+    background-image: url("./images/bg-pattern-desktop.svg"), linear-gradient(var(--Linear-Start-1), var(--Linear-End-1));
+}
+
+#hero {
+    width: 100%;
+}
+
+#hero-mobile {
+    display: none;
+}
+
+article {
+    padding: 0 20% 0 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    width: 158px;
+    height: 33px;
+    margin: 4rem 0;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 1.2em;
+    margin-top: 0.5em;
+    letter-spacing: 0.2em;
+}
+
+h1 span {
+    color: var(--Desaturated-Red);
+    font-weight: 300;
+}
+
+p {
+    color: var(--Desaturated-Red);
+    margin: 1rem 0;
+    padding-right: 1rem;
+    line-height: 1.5rem;
+}
+
+#email {
+    display: flex;
+    border: 1px solid var(--Desaturated-Red);
+    height: 3rem;
+    border-radius: 1.5rem;
+    position: relative;
+    align-items: center;
+}
+
+input {
+    padding-left: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: initial;
+    font-family: 'Josefin Sans';
+    width: 70%;
+}
+
+input::placeholder {
+    color: var(--Desaturated-Red);
+}
+
+#error {
+    position: absolute;
+    right: 6rem;
+    display: none;
+}
+
+#sign-up {
+    position: absolute;
+    right: -1%;
+    height: 3rem;
+    width: 6rem;
+    display: grid;
+    place-content: center;
+    background-color: var(--Linear-End-2);
+    border-radius: 1.5rem;
+}
+
+#sign-up:hover {
+    background-color: var(--Linear-Start-2);
+    cursor: pointer;
+    transform: scale(105%, 105%);
+}
+
+#reminder {
+    position: absolute;
+    left: 1.5em;
+    bottom: -1.5em;
+    color: var(--Soft-Red);
+    display: none;
+}
+
+@media screen and (max-width: 376px) {
+    main {
+        height: 150vh;
+        flex-direction: column;
+        background-repeat: round;
+    }
+
+    article {
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        padding: 0 1rem;
+    }
+}
